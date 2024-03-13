@@ -9,6 +9,8 @@ h1 {
   text-align: center;
   color: #934a15;
   font-family: cursive;
+  font-size: 60px;
+  margin-bottom: 50px;
 }
 
 p {
@@ -43,6 +45,8 @@ button {
   background-color: #764720;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  width: 400px;
+  height: 700px;
 }
 
 .result-display{
@@ -90,6 +94,7 @@ button {
   padding: 0px 20px;
   box-sizing: border-box;
   color: #783c11;
+  height: 80px;
 }
 
 .footer-links {
@@ -157,30 +162,16 @@ button::after,
 
 /* Mobile responsive */
 
-@media screen and (min-width: 950px) {
-  .calculator {
-    width: 400px;
-    height: 700px;
-  }
-  h1 {
-    font-size: 60px;
-    margin-bottom: 50px;
-  }
-  .footer {
-    height: 70px;
-  }
-}
-
 @media screen and (max-width: 949px) {
   .calculator {
-    width: 300px;
-    height: 500px;
+    margin-top: 20px;
+    width: 90vw;
+    height: 90vh;
   }
   h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    display: none;
   }
   .footer {
-    height: 30px;
+    display: none;
   }
 }
