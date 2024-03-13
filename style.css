@@ -9,8 +9,6 @@ h1 {
   text-align: center;
   color: #934a15;
   font-family: cursive;
-  font-size: 70px;
-  margin-bottom: 50px;
 }
 
 p {
@@ -26,7 +24,7 @@ button {
   border-radius: 10px;
   margin: 0;
   font-size: xx-large;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 /* Classes */
@@ -42,8 +40,6 @@ button {
 .calculator {
   border: 5px solid #764720;
   border-radius: 10px;
-  height: 800px;
-  width: 400px;
   background-color: #764720;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -64,14 +60,14 @@ button {
 
 .operations {
   display: flex;
-  font-weight: 900;
+  font-weight: 700;
   font-size: larger;
   color: #4c260b;
 }
 
 .result {
   color: #fef9f6;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .clear {
@@ -91,7 +87,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
   padding: 0px 20px;
   box-sizing: border-box;
   color: #783c11;
@@ -162,13 +157,28 @@ button::after,
 
 /* Mobile responsive */
 
-@media screen and (max-width: 932px) {
+@media screen and (min-width: 950px) {
+  .calculator {
+    width: 400px;
+    height: 700px;
+  }
+  h1 {
+    font-size: 60px;
+    margin-bottom: 50px;
+  }
+  .footer {
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 949px) {
   .calculator {
     width: 300px;
     height: 500px;
   }
   h1 {
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 10px;
   }
   .footer {
     height: 30px;
