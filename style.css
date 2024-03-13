@@ -174,4 +174,7 @@ button::after,
   .footer {
     display: none;
   }
+  button {
+    font-size: medium;
+  }
 }
