@@ -166,7 +166,7 @@ button::after,
   .calculator {
     margin-top: 20px;
     width: 90vw;
-    height: 90vh;
+    height: 80vh;
   }
   h1 {
     display: none;
