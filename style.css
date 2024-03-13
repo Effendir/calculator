@@ -42,8 +42,8 @@ button {
 .calculator {
   border: 5px solid #764720;
   border-radius: 10px;
-  max-height: 700px;
-  max-width: 400px;
+  height: 800px;
+  width: 400px;
   background-color: #764720;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
