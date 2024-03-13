@@ -140,3 +140,71 @@ dotButton.addEventListener("click", handleNumberClick);
 
 clearButton.addEventListener("click", handleClearClick);
 deleteButton.addEventListener("click", handleDeleteClick);
+
+// Keyboard support
+
+function handleKeyDown(event) {
+  const key = event.key;
+
+  switch (key) {
+    case "Enter":
+      equalButton.click();
+      break;
+    case "+":
+      addButton.click();
+      break;
+    case "-":
+      substractButton.click();
+      break;
+    case "*":
+      multiplyButton.click();
+      break;
+    case "/":
+      divideButton.click();
+      break;
+    case "1":
+      oneButton.click();
+      break;
+    case "2":
+      twoButton.click();
+      break;
+    case "3":
+      threeButton.click();
+      break;
+    case "4":
+      fourButton.click();
+      break;
+    case "5":
+      fiveButton.click();
+      break;
+    case "6":
+      sixButton.click();
+      break;
+    case "7":
+      sevenButton.click();
+      break;
+    case "8":
+      eightButton.click();
+      break;
+    case "9":
+      nineButton.click();
+      break;
+    case "0":
+      zeroButton.click();
+      break;
+    case ".":
+      dotButton.click();
+      break;
+    case ",":
+      dotButton.click();
+      break;
+    case "Backspace":
+      deleteButton.click();
+      break;
+    case "Delete":
+      clearButton.click();
+      break;
+  }
+}
+
+document.addEventListener("keydown", handleKeyDown);
