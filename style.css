@@ -32,10 +32,6 @@ button {
   display: flex;
 }
 
-.operation {
-  text-align: end;
-}
-
 .result-display{
   grid-row: 1 / 1;
   grid-column: 1 / 5;
