@@ -50,8 +50,6 @@ function handleNumberClick(e) {
 }
 
 function handleOperatorClick(e) {
-  operator = e.target.innerText;
-  opDisplay.innerText = operator;
   if (numBDisplay.innerText !== "") {
     numberA = +numADisplay.innerText;
     numberB = +numBDisplay.innerText;
@@ -60,6 +58,8 @@ function handleOperatorClick(e) {
     numADisplay.innerText = result;
     numBDisplay.innerText = "";
   }
+  operator = e.target.innerText;
+  opDisplay.innerText = operator;
 }
 
 function handleClearClick() {
