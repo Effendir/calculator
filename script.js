@@ -14,11 +14,80 @@ function divide(a, b) {
   return a / b
 }
 
+function isInteger(num) {
+  return num % 1 === 0;
+}
+
 function operate(op, numA, numB) {
-  if (op == "+") {return add(numA, numB)}
-  else if (op == "-") {return substract(numA, numB)}
-  else if (op == "*") {return multiply(numA, numB).toFixed(2)}
-  else if (op == "/") {return divide(numA, numB).toFixed(2)}
+  let result;
+  switch (op) {
+    case "+":
+      result = add(numA, numB);
+      break;
+    case "-":
+      result = substract(numA, numB);
+      break;
+    case "x":
+      result = multiply(numA, numB);
+      break;
+    case "/":
+      result = divide(numA, numB);
+      break;
+    default:
+      result = NaN;
+  }
+  return isInteger(result) ? result : result.toFixed(2);
+}
+
+
+function handleNumberClick(e) {
+  const num = e.target.innerText;
+  if (operator === undefined) {
+    numADisplay.innerText += num;
+  } else {
+    numBDisplay.innerText += num;
+  }
+}
+
+function handleOperatorClick(e) {
+  operator = e.target.innerText;
+  opDisplay.innerText = operator;
+  if (numBDisplay.innerText !== "") {
+    numberA = +numADisplay.innerText;
+    numberB = +numBDisplay.innerText;
+    result = operate(operator, numberA, numberB);
+    resultDisplay.innerText = "= " + result;
+    numADisplay.innerText = result;
+    numBDisplay.innerText = "";
+  }
+}
+
+function handleClearClick() {
+  numADisplay.innerText = "";
+  numBDisplay.innerText = "";
+  opDisplay.innerText = "";
+  resultDisplay.innerText = "";
+}
+
+function handleDeleteClick() {
+  if (numBDisplay.innerText !== "") {
+    numBDisplay.innerText = numBDisplay.innerText.slice(0, -1);
+  } else if (opDisplay.innerText !== "") {
+    opDisplay.innerText = "";
+  } else if (numADisplay.innerText !== "") {
+    numADisplay.innerText = numADisplay.innerText.slice(0, -1);
+  }
+}
+
+function handleEqualClick() {
+  numberA = +numADisplay.innerText;
+  numberB = +numBDisplay.innerText;
+  result = operate(operator, numberA, numberB);
+  if (numADisplay.innerText == "" || numBDisplay.innerText == "") {
+    resultDisplay.innerText = "";
+    return;
+  }
+  resultDisplay.innerText = "= " + result;
 }
 
 let numberA;
@@ -50,160 +119,24 @@ let eightButton = document.querySelector(".eight");
 let nineButton = document.querySelector(".nine");
 let zeroButton = document.querySelector(".zero");
 
-addButton.addEventListener("click", (e) => {
-  operator = "+";
-  opDisplay.innerText = " + ";
-  if (numBDisplay.innerText != "") {
-    numberA = +numADisplay.innerText;
-    numberB = +numBDisplay.innerText;
-    result = operate(operator, numberA, numberB);
-    resultDisplay.innerText = result;
-    numADisplay.innerText = result;
-    numBDisplay.innerText = "";
-  }
-});
+addButton.addEventListener("click", handleOperatorClick);
+substractButton.addEventListener("click", handleOperatorClick);
+multiplyButton.addEventListener("click", handleOperatorClick);
+divideButton.addEventListener("click", handleOperatorClick);
 
-substractButton.addEventListener("click", (e) => {
-  operator = "-";
-  opDisplay.innerText = " - ";
-  if (numBDisplay.innerText != "") {
-    numberA = +numADisplay.innerText;
-    numberB = +numBDisplay.innerText;
-    result = operate(operator, numberA, numberB);
-    resultDisplay.innerText = result;
-    numADisplay.innerText = result;
-    numBDisplay.innerText = "";
-  }
-});
+equalButton.addEventListener("click", handleEqualClick)
 
-multiplyButton.addEventListener("click", (e) => {
-  operator = "*";
-  opDisplay.innerText = " x ";
-  if (numBDisplay.innerText != "") {
-    numberA = +numADisplay.innerText;
-    numberB = +numBDisplay.innerText;
-    result = operate(operator, numberA, numberB);
-    resultDisplay.innerText = result;
-    numADisplay.innerText = result;
-    numBDisplay.innerText = "";
-  }
-});
+oneButton.addEventListener("click", handleNumberClick);
+twoButton.addEventListener("click", handleNumberClick);
+threeButton.addEventListener("click", handleNumberClick);
+fourButton.addEventListener("click", handleNumberClick);
+fiveButton.addEventListener("click", handleNumberClick);
+sixButton.addEventListener("click", handleNumberClick);
+sevenButton.addEventListener("click", handleNumberClick);
+eightButton.addEventListener("click", handleNumberClick);
+nineButton.addEventListener("click", handleNumberClick);
+zeroButton.addEventListener("click", handleNumberClick);
+dotButton.addEventListener("click", handleNumberClick);
 
-divideButton.addEventListener("click", (e) => {
-  operator = "/";
-  opDisplay.innerText = " / ";
-  if (numBDisplay.innerText != "") {
-    numberA = +numADisplay.innerText;
-    numberB = +numBDisplay.innerText;
-    result = operate(operator, numberA, numberB);
-    resultDisplay.innerText = result;
-    numADisplay.innerText = result;
-    numBDisplay.innerText = "";
-  }
-});
-
-equalButton.addEventListener("click", (e) => {
-  numberA = +numADisplay.innerText;
-  numberB = +numBDisplay.innerText;
-  result = operate(operator, numberA, numberB);
-  resultDisplay.innerText = result;
-})
-
-oneButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "1";
-  } else {
-    numBDisplay.innerText += "1";
-  }
-})
-
-twoButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "2";
-  } else {
-    numBDisplay.innerText += "2";
-  }
-})
-
-threeButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "3";
-  } else {
-    numBDisplay.innerText += "3";
-  }
-})
-
-fourButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "4";
-  } else {
-    numBDisplay.innerText += "4";
-  }
-})
-
-fiveButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "5";
-  } else {
-    numBDisplay.innerText += "5";
-  }
-})
-
-sixButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "6";
-  } else {
-    numBDisplay.innerText += "6";
-  }})
-
-sevenButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "7";
-  } else {
-    numBDisplay.innerText += "7";
-  }})
-
-eightButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "8";
-  } else {
-    numBDisplay.innerText += "8";
-  }})
-
-nineButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "9";
-  } else {
-    numBDisplay.innerText += "9";
-  }})
-
-zeroButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += "0";
-  } else {
-    numBDisplay.innerText += "0";
-  }})
-
-dotButton.addEventListener("click", (e) => {
-  if (operator == undefined) {
-    numADisplay.innerText += ".";
-  } else {
-    numBDisplay.innerText += ".";
-  }})
-
-  clearButton.addEventListener("click", (e) => {
-    numADisplay.innerText = "";
-    numBDisplay.innerText = "";
-    opDisplay.innerText = "";
-    resultDisplay.innerText = "";
-  })
-
-  deleteButton.addEventListener("click", (e) => {
-    if (numBDisplay.innerText != "") {
-      numBDisplay.innerText = numBDisplay.innerText.slice(0, -1);
-    } else if (opDisplay.innerText != "") {
-      opDisplay.innerText = "";
-    } else if (numADisplay.innerText != "") {
-      numADisplay.innerText = numADisplay.innerText.slice(0, -1);
-    }
-  })
+clearButton.addEventListener("click", handleClearClick);
+deleteButton.addEventListener("click", handleDeleteClick);
