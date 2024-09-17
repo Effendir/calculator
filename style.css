@@ -24,7 +24,7 @@ p {
   margin: 0;
 }
 
-button {
+button, .result-display {
   background-color: #783c11;
   color: #fef9f6;
   border: 2px solid #764720;
@@ -34,6 +34,12 @@ button {
   font-weight: 700;
 }
 
+button:hover {
+  background-color: #381b06;
+  transform: scale(1.1);
+  z-index: 1;
+}
+
 /* Classes */
 
 .container {
@@ -41,7 +47,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  gap: 10px;
 }
 
 .calculator {
@@ -125,7 +131,7 @@ button {
 
 /* Chocolate bar look */
 
-button {
+button, .result-display {
   border-top-left-radius: .1em;
   border-top-right-radius: .1em;
   border-bottom-left-radius: .1em;
@@ -150,6 +156,7 @@ button::after,
 }
 
 button::before,
+.result-display::before,
 .button::after {
   width: auto;
   height: auto;
@@ -176,13 +183,17 @@ button::after,
     width: 90vw;
     height: 80vh;
   }
+
   h1 {
-    display: none;
+    font-size: 2em;
+    margin-bottom: 0;
   }
-  .footer {
-    display: none;
+  .footer, .footer-links a {
+    font-size: small;
+    padding: 2px;
+    height: auto;
   }
-  button {
+  button, .result-display {
     font-size: medium;
   }
 }
